@@ -10,14 +10,13 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  build: 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: withastro/action@v3
         with:
           node-version: 22
-      - uses: withastro/action@v3
 
   deploy:
     needs: build
@@ -28,4 +27,4 @@ jobs:
     steps:
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v4
